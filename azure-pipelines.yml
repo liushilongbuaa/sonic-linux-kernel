@@ -22,6 +22,8 @@ jobs:
       export kernel_procure_method=build
       cat /proc/cpuinfo
       make
+      sudo find . -xtype l | xargs -i ls -al {}
+      sudo find . -xtype l | xargs -i rm {}
     displayName: "Compile sonic kernel"
   - publish: $(System.DefaultWorkingDirectory)/
     artifact: sonic-linux-kernel
